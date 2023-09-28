@@ -3,8 +3,16 @@
 <h1><%= title %></h1>
 <p><%= content %></p>
 
-<form action="/<%= id %>" method="post">
-    <input type="submit" value="Delete" class="btn btn-danger">
-</form>
+<div >
+    <form action="/delete/<%= id %>" method="post" class="modify">
+        <input type="submit" value="Delete" class="btn btn-danger">
+    </form>
+
+    <form action="/compose/update/<%= id %>" method="get" class="modify">
+        <input type="submit" value="Update" class="btn btn-danger">
+    </form>
+</div>
+
+
 
 <%- include("partials/footer.ejs"); %>

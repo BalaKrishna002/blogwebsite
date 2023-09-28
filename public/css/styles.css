@@ -38,3 +38,8 @@
     color: #1abc9c;
     font-size: xx-large;
 }
+
+.modify{
+    display: inline;
+    padding-right: 5px;
+}

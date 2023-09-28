@@ -1,5 +1,6 @@
 //jshint esversion:6
 
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -17,7 +18,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://balu:y20cs108@cluster0.iwk3gyj.mongodb.net/blogDB", {useNewUrlParser: true});
+mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true}); 
 
 const postSchema = {
   title: String,
@@ -66,11 +67,29 @@ app.get("/posts/:postId",async (req,res)=>{
   });
 })
 
-app.post("/:postId",async (req,res)=>{
+app.post("/delete/:postId",async (req,res)=>{
   await Post.deleteOne({_id:req.params.postId});
   res.redirect("/");
 })
 
+app.get("/compose/update/:postId", async (req,res)=>{
+  const requestedPostId = req.params.postId;
+  const post = await Post.findById(requestedPostId);
+  res.render("update",{
+    post
+  });
+})
+
+app.post("/compose/update/:postId", async(req,res)=>{
+  const id = req.params.postId;
+  await Post.findByIdAndUpdate(id,
+    {
+      title: req.body.postTitle,
+      content: req.body.postBody
+    })
+  res.redirect(`/posts/${id}`);
+})
+
 app.listen(process.env.PORT||3000, function() {
-  console.log("Server started on port 3000");
+  console.log("Server started successfully");
 });
