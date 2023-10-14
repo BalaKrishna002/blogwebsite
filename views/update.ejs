@@ -1,7 +1,7 @@
 <%- include("partials/header.ejs"); %>
 
 <h1>Compose</h1>
-<form action="/compose/update/<%= post._id %>" method="POST">
+<form method="POST" action="/compose/update/<%= post._id %>?_method=PUT">
     <div class="form-group">
         <label >Title</label>
         <input type="text" name="postTitle" value="<%= post.title %>" class="form-control">
