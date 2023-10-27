@@ -4,12 +4,12 @@
 <p><%= content %></p>
 
 <div >
-    <form action="/delete/<%= id %>?_method=DELETE" method="post" class="modify">
+    <form action="/blog/delete/<%= id %>?_method=DELETE" method="post" class="modify">
         <input type="submit" value="Delete" class="btn btn-danger">
     </form>
 
-    <form action="/compose/update/<%= id %>" method="get" class="modify">
-        <input type="submit" value="Update" class="btn btn-danger">
+    <form action="/blog/compose/update/<%= id %>" method="get" class="modify">
+        <input type="submit" value="Update" class="btn btn-primary">
     </form>
 </div>
 

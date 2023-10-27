@@ -1,24 +1,24 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
+const passport = require("../middleware/passport")
+
 const Post = require("../models/blog");
+const User = require("../models/user");
+const ensureAuth = require("../middleware/ensureAuth");
 
 const router = express.Router();
-
-router.get("/",async (req,res)=>{
-    const posts = await Post.find()
-    res.render("home", {
-      homeContent: "This is my daily journal or blog.",
-      posts: posts
-    });
   
+  
+ router.route("/compose")
+  .get(ensureAuth,(req,res)=>{
+    res.render("compose");
   })
-  
-  
- router.post("/compose",async (req,res)=>{
+  .post(ensureAuth,async (req,res)=>{
     const post = new Post ({
       title: req.body.postTitle,
-      content: req.body.postBody
+      content: req.body.postBody,
+      author: req.user._id
     });
     await post.save();
     res.redirect("/");
@@ -34,7 +34,7 @@ router.get("/",async (req,res)=>{
     });
   })
   
-router.delete("/delete/:postId",async (req,res)=>{
+router.delete("/delete/:postId",ensureAuth,async (req,res)=>{
   try{
     const deletePost = await Post.findByIdAndDelete(req.params.postId);
     if(!deletePost){
@@ -47,7 +47,7 @@ router.delete("/delete/:postId",async (req,res)=>{
     
   })
 
-router.route("/compose/update/:postId")
+router.route("/compose/update/:postId",ensureAuth)
   .get(async (req,res)=>{
     const requestedPostId = req.params.postId;
     const post = await Post.findById(requestedPostId);
@@ -55,14 +55,14 @@ router.route("/compose/update/:postId")
       post
     });
   })
-  .put( async(req,res)=>{
+  .put(async(req,res)=>{
     const id = req.params.postId;
     await Post.findByIdAndUpdate(id,
       {
         title: req.body.postTitle,
         content: req.body.postBody
       },{ new: true })
-    res.redirect(`/posts/${id}`);
+    res.redirect(`/blog/posts/${id}`);
   });
 
   module.exports = router;
