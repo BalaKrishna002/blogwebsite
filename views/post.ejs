@@ -1,7 +1,7 @@
 <%- include("partials/header.ejs"); %>
 
 <h1><%= title %></h1>
-<p><%= content %></p>
+<p><%= content.replace('\n', '<br>') %></p>
 
 <div >
     <form action="/blog/delete/<%= id %>?_method=DELETE" method="post" class="modify">
