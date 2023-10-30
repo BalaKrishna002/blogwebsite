@@ -3,22 +3,25 @@
 
 <div class="container mt-5">
     <h1>Hi <%= user %>!</h1>
-    <% if(posts.length>0){%>
-    <h3>These are your blog posts...</h3>
-
-    <% posts.forEach((post)=>{ %>
+    <div class="container mt-5">
+        <a class="btn btn-primary " href="/blog/compose" role="button" >Create Blog!</a>
+        <a class="btn btn-primary " href="/logout" role="button" >Logout</a>
         <hr>
-        <h1><%= post.title %></h1>
-        <p><%= post.content.substring(0,100)+" ..." %>
-            <a href="/blog/posts/<%= post._id %>">Read More</a>
-        </p>
-    <% }) %>
-    <% }else{ %>
-        <h3>There are no blog posts to show</h3>
-        <p>Create blog post by clicking + at top-right</p>
-    <% } %>
-    <hr>
-    <a class="btn btn-primary" href="/logout" role="button">Logout</a>
+
+        <% if(posts.length>0){%>
+            <h3>These are your blog posts...</h3>
+        
+            <% posts.forEach((post)=>{ %>
+                <h1><%= post.title %></h1>
+                <p><%= post.content.substring(0,100)+" ..." %>
+                    <a href="/blog/posts/<%= post._id %>">Read More</a>
+                </p>
+            <% }) %>
+        <% }else{ %>
+            <h3>Create new blog!</h3>
+        <% } %>
+     </div>
+    
 </div>
 
 
