@@ -8,6 +8,6 @@
 
 **Fork the repository and execute the commands in git**
 
-`git clone https://github.com/BalaKrishna002/blogwebsite.git`
-`npm install`
+`git clone https://github.com/BalaKrishna002/blogwebsite.git  `
+`npm install  `
 `node app.js`
