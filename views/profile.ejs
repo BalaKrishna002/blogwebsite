@@ -1,18 +1,12 @@
 
 <%- include('partials/header.ejs') %>
 
+
 <div class="container mt-5">
-    <div class="user">
-        <h2 style="font-family: Monospace;">Hi <%= user %>!</h2><br>
-        <a class="btn btn-primary " href="/blog/compose" role="button" >New Blog!</a>
-        <a class="btn btn-primary " href="/logout" role="button" >Logout</a>
-    </div>
-    
+    <h2 class="user"><%= author.fullname %>!</h2>
     <div class="container mt-5">
-        
 
         <% if(posts.length>0){%>
-        
             <% posts.forEach((post)=>{ %>
                 <hr>
                 <div class="Title">
@@ -20,14 +14,14 @@
                 </div>
                 <div class="Description">
                     <p><%- post.content.substring(0,100)+" ..." %>
-                        <a href="/blog/posts/<%= post._id %>">Read More</a>
+                        <a href="/search/posts/<%= post._id %>">Read More</a>
                     </p>
                 </div>
                 
             <% }) %>
         <% }else{ %>
             <hr>
-            <h5 style="text-align: center;">Create new blog!</h5>
+            <h5>No Blogs Found!</h5>
         <% } %>
      </div>
     

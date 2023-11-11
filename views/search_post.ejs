@@ -1,0 +1,14 @@
+<%- include("partials/header.ejs"); %>
+
+<div class="container mt-5">
+    <div class="Title">
+        <h2 style="font-family: Lobster;"><%= title %></h2>
+        <a href="/profile/<%= author._id %>"  ><span style="color: grey;"><%= author.fullname %></span></a><br>
+        <span style="color: grey;"><%= createdAt %></span>
+    </div><hr>
+    <div class="Description">
+        <p><%- content.replace(/\n/g, '<br>') %></p>
+    </div>  
+</div>
+
+<%- include("partials/footer.ejs"); %>

@@ -1,11 +1,18 @@
 <%- include("partials/header.ejs"); %>
 
 <div class="container mt-5">
-    <h1><%= title %></h1><hr>
-    <p><%- content.replace(/\n/g, '<br>') %></p>
+    <div class="Title">
+        <h2><%= title %></h2>
+        <span style="color: grey;"><%= createdAt %></span>
+        <hr>
+    </div>
+    <div class="Description">
+        <p><%- content.replace(/\n/g, '<br>') %></p>
+    </div>
+    
 </div>
 
-
+<hr>
 
 <div >
     <form action="/blog/delete/<%= id %>?_method=DELETE" method="post" class="modify">

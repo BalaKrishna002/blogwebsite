@@ -6,6 +6,7 @@ const passport = require("../middleware/passport")
 const Post = require("../models/blog");
 const User = require("../models/user");
 const ensureAuth = require("../middleware/ensureAuth");
+const { marked } = require("marked");
 
 const router = express.Router();
   
@@ -15,9 +16,10 @@ const router = express.Router();
     res.render("compose");
   })
   .post(ensureAuth,async (req,res)=>{
+    const htmlContent = marked(req.body.postBody);
     const post = new Post ({
       title: req.body.postTitle,
-      content: req.body.postBody,
+      content: htmlContent,
       author: req.user._id
     });
     await post.save();
@@ -30,7 +32,8 @@ const router = express.Router();
     res.render("post",{
       id: post._id,
       title: post.title,
-      content: post.content
+      content: post.content,
+      createdAt: post.createdAt.getDate()+'/'+post.createdAt.getMonth()+'/'+post.createdAt.getFullYear()
     });
   })
   

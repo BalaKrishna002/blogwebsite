@@ -1,10 +1,11 @@
-
-  
-
+body{
+    box-sizing: border-box;
+}
 .container-fluid {
     padding-top: 70px;
     padding-bottom: 70px;
 }
+
 .navbar {
     padding-top: 15px;
     padding-bottom: 15px;
@@ -16,6 +17,9 @@
 }
 .navbar-nav  li a:hover {
     color: #1abc9c !important;
+}
+.form-inline{
+    padding-top: 7px;
 }
 
 .footer-padding {
@@ -46,3 +50,22 @@
     display: inline;
     padding-right: 5px;
 }
+
+.Description{
+    font-family: Cambria, Verdana, Geneva, Tahoma, sans-serif;
+    font-size: medium;
+}
+
+.Title{
+    font-family: Lobster;
+}
+
+.user{
+    text-align: center;
+}
+
+i{
+    font-size: 20px;
+}
+
+
