@@ -60,10 +60,11 @@ router.route("/compose/update/:postId",ensureAuth)
   })
   .put(async(req,res)=>{
     const id = req.params.postId;
+    const htmlContent = marked(req.body.postBody);
     await Post.findByIdAndUpdate(id,
       {
         title: req.body.postTitle,
-        content: req.body.postBody
+        content: htmlContent
       },{ new: true })
     res.redirect(`/blog/posts/${id}`);
   });

@@ -1,10 +1,10 @@
 <%- include('partials/header.ejs') %>
 
 <div class="container mt-5">
-    <span>results for <%= search %>...</span>
 
     <% if(posts.length>0){%>
-    
+
+        <span style="padding-top: 40rem; font-size: medium;"><%= posts.length %> results for <%= search %>...</span>
         <% posts.forEach((post)=>{ %>
             <hr>
             <div class="Title">
@@ -19,7 +19,7 @@
         <% }) %>
     <% }else{ %>
         <hr>
-        <h2 style="padding: auto;">No results found...</h2>
+        <h2 style="padding: auto;">No results for "<%= search %>"...</h2>
     <% } %>
  </div>
 

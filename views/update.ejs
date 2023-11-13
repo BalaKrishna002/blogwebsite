@@ -6,7 +6,7 @@
         <label >Title</label>
         <input type="text" name="postTitle" value="<%= post.title %>" class="form-control">
         <label >Post</label>
-        <textarea type="text" name="postBody" rows="8" cols="80" class="form-control" autofocus ><%- post.content.replace(/\n/g, '<br>') %></textarea>
+        <textarea type="text" name="postBody" rows="8" cols="80" class="form-control" autofocus ><%- post.content %></textarea>
     </div>
     <input type="submit" value="Update" class="btn btn-primary">
     <a class="btn btn-dark" href="/blog/posts/<%= post._id %>" role="button" >Cancel</a>
@@ -14,7 +14,7 @@
 
 <script>
     function fun1(){
-        document.getElementById("hint").innerText="Can use markdown syntax for better styling";
+        document.getElementById("hint").innerText="use markdown syntax for better styling";
     }
 
     function fun2(){

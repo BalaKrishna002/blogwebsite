@@ -3,7 +3,7 @@
 
 <div class="container mt-5">
     <div class="user">
-        <h2 style="font-family: Monospace;">Hi <%= user %>!</h2><br>
+        <h2 >Hi <%= user %>!</h2>
         <a class="btn btn-primary " href="/blog/compose" role="button" >New Blog!</a>
         <a class="btn btn-primary " href="/logout" role="button" >Logout</a>
     </div>
@@ -19,7 +19,7 @@
                     <h3><%= post.title %></h3>
                 </div>
                 <div class="Description">
-                    <p><%- post.content.substring(0,100)+" ..." %>
+                    <p><%- post.content.substring(0,120)+" ..." %>
                         <a href="/blog/posts/<%= post._id %>">Read More</a>
                     </p>
                 </div>
