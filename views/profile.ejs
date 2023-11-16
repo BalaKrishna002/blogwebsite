@@ -14,10 +14,11 @@
             <% posts.forEach((post)=>{ %>
                 <hr>
                 <div class="Title">
-                    <h3><%= post.title %></h3>
+                    <h2><%= post.title %></h2>
                 </div>
+                <hr class="all-blogs">
                 <div class="Description">
-                    <p><%- post.content.substring(0,100)+" ..." %>
+                    <p><%- post.content.substring(0,120)+" ..." %>
                         <a href="/search/posts/<%= post._id %>">Read More</a>
                     </p>
                 </div>
@@ -25,7 +26,7 @@
             <% }) %>
         <% }else{ %>
             <hr>
-            <h5>No Blogs Found!</h5>
+            <h5>User had not published any blogs!</h5>
         <% } %>
      </div>
     

@@ -16,10 +16,10 @@ const router = express.Router();
     res.render("compose");
   })
   .post(ensureAuth,async (req,res)=>{
-    const htmlContent = marked(req.body.postBody);
+    //const htmlContent = marked(req.body.postBody);
     const post = new Post ({
       title: req.body.postTitle,
-      content: htmlContent,
+      content: req.body.postBody,
       author: req.user._id
     });
     await post.save();
@@ -32,7 +32,7 @@ const router = express.Router();
     res.render("post",{
       id: post._id,
       title: post.title,
-      content: post.content,
+      content: marked(post.content),
       createdAt: post.createdAt.getDate()+'/'+post.createdAt.getMonth()+'/'+post.createdAt.getFullYear()
     });
   })
@@ -60,11 +60,11 @@ router.route("/compose/update/:postId",ensureAuth)
   })
   .put(async(req,res)=>{
     const id = req.params.postId;
-    const htmlContent = marked(req.body.postBody);
+    //const htmlContent = marked(req.body.postBody);
     await Post.findByIdAndUpdate(id,
       {
         title: req.body.postTitle,
-        content: htmlContent
+        content: req.body.postBody
       },{ new: true })
     res.redirect(`/blog/posts/${id}`);
   });

@@ -8,10 +8,10 @@
         <% posts.forEach((post)=>{ %>
             <hr>
             <div class="Title">
-                <h3><%= post.title %></h3>
+                <h2><%= post.title %></h2>
             </div>
             <div class="Description">
-                <p><%- post.content.substring(0,100)+" ..." %>
+                <p><%- post.content.substring(0,120)+" ..." %>
                     <a href="/search/posts/<%= post._id %>">Read More</a>
                 </p>
             </div>
@@ -19,7 +19,7 @@
         <% }) %>
     <% }else{ %>
         <hr>
-        <h2 style="padding: auto;">No results for "<%= search %>"...</h2>
+        <h2 style="padding: auto; text-align: center;">No results for "<%= search %>"...</h2>
     <% } %>
  </div>
 

@@ -32,7 +32,7 @@ app.use(methodOverride('_method'));
 
 
 app.use(session({
-  secret: "sndknmdlnb12e4254jb",
+  secret: process.env.SECRET,
   resave: false,
   saveUninitialized: false
 }));

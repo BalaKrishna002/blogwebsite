@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const session = require("express-session");
+const { marked }  = require("marked");
 
 const Post = require("../models/blog");
 const User = require("../models/user");
@@ -10,6 +11,9 @@ const router = express.Router();
 
 router.get("/",ensureAuth, async (req,res)=>{
     const posts = await Post.find({author: req.user._id});
+    posts.forEach((post)=>{
+      post.content = marked(post.content);
+    })
     res.render("home",{user: req.user.fullname,posts: posts}); 
 });
 
@@ -26,6 +30,9 @@ router.get("/search",async (req,res)=>{
       $or: [{title: { $regex: regex }},{content: { $regex: regex }}]
     }
   );
+  posts.forEach((post)=>{
+    post.content = marked(post.content);
+  })
   res.render("search",{search,posts})
 })
 
@@ -36,7 +43,7 @@ router.get("/search/posts/:postId",async (req,res)=>{
   res.render("search_post",{
     id: post._id,
     title: post.title,
-    content: post.content,
+    content: marked(post.content),
     author: author,
     createdAt: post.createdAt.getDate()+'/'+post.createdAt.getMonth()+'/'+post.createdAt.getFullYear()
   });
@@ -45,6 +52,9 @@ router.get("/search/posts/:postId",async (req,res)=>{
 router.get("/profile/:profileId", async (req,res)=>{
     const posts = await Post.find({author: req.params.profileId});
     const author = await User.findOne({_id: req.params.profileId});
+    posts.forEach((post)=>{
+      post.content = marked(post.content);
+    })
     res.render("profile",{posts,author}); 
 })
 
