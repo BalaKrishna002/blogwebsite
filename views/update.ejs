@@ -1,20 +1,24 @@
 <%- include("partials/header.ejs"); %>
 
-<h1>Update <i class="bi bi-question-circle-fill" id="hint" onmouseover="fun1()" onmouseout="fun2()"></i></h1>
-<form method="POST" action="/blog/compose/update/<%= post._id %>?_method=PUT">
-    <div class="form-group">
-        <label >Title</label>
-        <input type="text" name="postTitle" value="<%= post.title %>" class="form-control">
-        <label >Post</label>
-        <textarea type="text" name="postBody" rows="8" cols="80" class="form-control" autofocus ><%- post.content %></textarea>
-    </div>
-    <input type="submit" value="Update" class="btn btn-primary">
-    <a class="btn btn-dark" href="/blog/posts/<%= post._id %>" role="button" >Cancel</a>
-</form>
+<div class="container mt-5 post auth">
+    <h1>Update <i class="bi bi-question-circle-fill" id="hint" onmouseover="fun1()" onmouseout="fun2()"></i></h1>
+    <form method="POST" action="/blog/compose/update/<%= post._id %>?_method=PUT">
+        <div class="form-group">
+            <label >Title</label>
+            <input type="text" spellcheck="true" required autofocus name="postTitle" value="<%= post.title %>" class="form-control">
+            <label >Post</label>
+            <textarea type="text" name="postBody" spellcheck="true" required rows="8" cols="80" class="form-control" autofocus ><%- post.content %></textarea>
+        </div>
+        <input type="submit" value="Update" class="btn btn-primary">
+        <a class="btn btn-dark" href="/blog/posts/<%= post._id %>" role="button" >Cancel</a>
+    </form>
+</div>
+
 
 <script>
     function fun1(){
         document.getElementById("hint").innerText="use markdown syntax for better styling";
+        
     }
 
     function fun2(){

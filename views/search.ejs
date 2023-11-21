@@ -4,21 +4,24 @@
 
     <% if(posts.length>0){%>
 
-        <span style="padding-top: 40rem; font-size: medium;"><%= posts.length %> results for <%= search %>...</span>
+        <p style="padding-top: 1rem; font-size: medium;"><%= posts.length %> results for <%= search %>...</p>
+        <hr>
         <% posts.forEach((post)=>{ %>
-            <hr>
-            <div class="Title">
-                <h2><%= post.title %></h2>
+            <div class="post">
+                <div class="Title">
+                    <h2><%= post.title %></h2>
+                    <hr class="all-posts">
+                </div>
+                <div class="Description">
+                    <p><%- post.content.substring(0,120)+" ..." %>
+                        <a href="/search/posts/<%= post._id %>">Read More</a>
+                    </p>
+                </div>
             </div>
-            <div class="Description">
-                <p><%- post.content.substring(0,120)+" ..." %>
-                    <a href="/search/posts/<%= post._id %>">Read More</a>
-                </p>
-            </div>
+            <br>
             
         <% }) %>
     <% }else{ %>
-        <hr>
         <h2 style="padding: auto; text-align: center;">No results for "<%= search %>"...</h2>
     <% } %>
  </div>

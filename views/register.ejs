@@ -1,6 +1,6 @@
 <%- include('partials/header') %>
 
-<div class="container mt-5">
+<div class="container mt-5 post auth">
   <h2>Register</h2>
 
   <div class="row">
@@ -8,19 +8,19 @@
       <div class="card">
         <div class="card-body">
 
-          <!-- Makes POST request to /register route -->
+
           <form action="/auth/register" method="POST">
             <div class="form-group">
               <label for="text">Full Name</label>
-              <input type="text" class="form-control" name="fullname" placeholder="Full Name">
+              <input type="text" class="form-control" name="fullname" spellcheck="true" required autofocus placeholder="Full Name">
             </div>
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" class="form-control" name="username" placeholder="Email">
+              <input type="email" class="form-control" name="username" required autofocus placeholder="Email">
             </div>
             <div class="form-group">
               <label for="password">Password</label>
-              <input type="password" class="form-control" name="password" placeholder="Password">
+              <input type="password" class="form-control" name="password" required autofocus placeholder="Password">
             </div>
             <button type="submit" class="btn btn-dark">Register</button>
           </form><br>

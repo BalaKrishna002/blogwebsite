@@ -46,6 +46,8 @@ body{
 .modify{
     display: inline;
     padding-right: 2rem;
+    align-items: center;
+
 }
 
 .Description{
@@ -70,7 +72,32 @@ hr{
     margin-top: 0;
 }
 
+.post{
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    padding: 1rem;
+    border-radius: 5px;
+}
 
+.auth{
+    align-items:center; 
+    width: 75%; 
+    margin-top:2rem; 
+    padding-left: 3rem;
+}
+
+.all-posts{
+    width: 10%;
+    margin: 0;
+    background-color: rgb(88, 88, 225);
+    size: 10%;
+}
+
+.full-post{
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    padding: 2rem;
+    border-radius: 5px;
+    margin-top: 2rem;
+}
 
 i{
     font-size: 20px;

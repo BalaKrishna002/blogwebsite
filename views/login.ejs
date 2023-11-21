@@ -1,6 +1,6 @@
 <%- include('partials/header') %>
 
-<div class="container mt-5">
+<div class="container mt-5 post auth">
   <h2>Login</h2>
 
   <div class="row">
@@ -12,11 +12,11 @@
           <form action="/auth/login" method="POST">
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" class="form-control" name="username" placeholder="Email">
+              <input type="email" class="form-control" name="username" required autofocus placeholder="Email">
             </div>
             <div class="form-group">
               <label for="password">Password</label>
-              <input type="password" class="form-control" name="password" placeholder="Password">
+              <input type="password" class="form-control" name="password" required autofocus placeholder="Password">
             </div>
             <button type="submit" class="btn btn-dark">Login</button>
           </form><br>

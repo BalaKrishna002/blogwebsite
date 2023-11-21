@@ -1,19 +1,23 @@
 <%- include("partials/header.ejs"); %>
 
-<h1>Compose <i class="bi bi-question-circle-fill" id="hint" onmouseover="fun1()" onmouseout="fun2()"></i></h1>
-<form action="/blog/compose" method="post">
-    <div class="form-group">
-        <label >Title</label>
-        <input type="text" name="postTitle" class="form-control">
-        <label >Post</label>
-        <textarea type="text" name="postBody" rows="8" cols="80" class="form-control" autofocus></textarea>
-    </div>
-    <input type="submit" value="publish" class="btn btn-primary">
-    <a class="btn btn-dark" href="/" role="button" >Cancel</a>
-</form>
+<div class="container mt-5 post auth">
+    <h1>Compose <i class="bi bi-question-circle-fill" id="hint" onmouseover="fun1()" onmouseout="fun2()"></i></h1>
+    <form action="/blog/compose" method="post">
+        <div class="form-group">
+            <label >Title</label>
+            <input type="text" name="postTitle" spellcheck="true" required autofocus class="form-control">
+            <label >Post</label>
+            <textarea type="text" name="postBody" rows="8" cols="80" class="form-control" spellcheck="true" required autofocus></textarea>
+        </div>
+        <input type="submit" value="publish" class="btn btn-primary">
+        <a class="btn btn-dark" href="/" role="button" >Cancel</a>
+    </form>
+</div>
+
 <script>
     function fun1(){
         document.getElementById("hint").innerText="use markdown syntax for better styling";
+        document.getElementById("hint").style.fontSize="20px";
     }
 
     function fun2(){
