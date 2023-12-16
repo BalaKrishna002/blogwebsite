@@ -1,28 +1,43 @@
 <%- include("partials/header.ejs"); %>
 
-<div class="container mt-5 post auth">
-    <h1>Compose <i class="bi bi-question-circle-fill" id="hint" onmouseover="fun1()" onmouseout="fun2()"></i></h1>
-    <form action="/blog/compose" method="post">
+ 
+
+<div class="container mt-5 post auth" style="margin-bottom: 2em;">
+    <h1>Compose </h1>
+    <form id="myForm" action="/blog/compose" method="post">
         <div class="form-group">
             <label >Title</label>
-            <input type="text" name="postTitle" spellcheck="true" required autofocus class="form-control">
+            <input type="text" name="title" spellcheck="true" required autofocus class="form-control">
             <label >Post</label>
-            <textarea type="text" name="postBody" rows="8" cols="80" class="form-control" spellcheck="true" required autofocus></textarea>
+            <!-- <textarea type="text" name="postBody" id="editor" rows="8" cols="80" class="form-control" spellcheck="true" required autofocus></textarea> -->
+            <div id="editor" style="height: 300px;"></div>
         </div>
         <input type="submit" value="publish" class="btn btn-primary">
         <a class="btn btn-dark" href="/" role="button" >Cancel</a>
     </form>
 </div>
 
-<script>
-    function fun1(){
-        document.getElementById("hint").innerText="use markdown syntax for better styling";
-        document.getElementById("hint").style.fontSize="20px";
-    }
 
-    function fun2(){
-        document.getElementById("hint").innerText="";
-    }
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script>
+    // Initialize Quill.js
+    var quill = new Quill('#editor', {
+      theme: 'snow'
+    });
+
+    // Get form and attach submit event listener
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+        // Get content from Quill.js editor
+        var content = quill.root.innerHTML;
+  
+        // Create a hidden input field and append it to the form
+        var hiddenInput = document.createElement('input');
+        hiddenInput.setAttribute('type', 'hidden');
+        hiddenInput.setAttribute('name', 'content');
+        hiddenInput.setAttribute('value', content);
+        this.appendChild(hiddenInput);
+      });
+
     
 </script>
 <%- include("partials/footer.ejs"); %>

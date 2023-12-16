@@ -23,7 +23,7 @@ body{
 }
 
 .footer-padding {
-	padding-bottom: 2rem;
+    margin-top: 2rem;
 }
 
 .footer {
@@ -31,13 +31,13 @@ body{
 	text-align: center;
 	bottom: 0;
 	width: 100%;
-	height: 8%;
+	height: 5%;
 	background-color: #1abc9c;
 }
 
 .footer p {
-	margin-top: 1.5rem;
-	font-size: 1.5rem;
+    padding-top: 1em;
+	font-size: 1.3rem;
     color: #fff;
 }
 
@@ -45,7 +45,7 @@ body{
 
 .modify{
     display: inline;
-    padding-right: 2rem;
+    padding-right: 2em;
     align-items: center;
 
 }
@@ -90,6 +90,14 @@ hr{
     margin: 0;
     background-color: rgb(88, 88, 225);
     size: 10%;
+}
+
+.end-post{
+    width: 30%;
+    margin: 0;
+    /* background-color: rgb(88, 88, 225); */
+    size: 10%;
+    margin-bottom: 1em;
 }
 
 .full-post{
