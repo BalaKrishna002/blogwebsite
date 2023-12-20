@@ -1,29 +1,20 @@
 <%- include('partials/header.ejs') %>
 
-<div class="container mt-5" style="margin-bottom: 2em;">
+<div class="user-dashboard">
 
     <% if(posts.length>0){%>
-
-        <p style="padding-top: 1rem; font-size: medium;"><%= posts.length %> results for <%= search %>...</p>
-        <hr>
-        <% posts.forEach((post)=>{ %>
-            <div class="post">
-                <div class="Title">
-                    <h2><%= post.title %></h2>
-                    <hr class="all-posts">
-                </div>
-                <div class="Description">
-                    <p><%- post.content.substring(0,120)+" ..." %>
-                        <a href="/search/posts/<%= post._id %>">Read More</a>
-                    </p>
-                </div>
-            </div>
-            <br>
-            
-        <% }) %>
+        <h4 style="padding-top: 1rem; font-size: medium;"><%= posts.length %> results for <%= search %>...</h4>
+        <hr style="border-bottom: 2px solid #000; margin:5px">
+      <% posts.forEach((post)=>{ %>
+          <div class="blog-post">
+                <h2><%= post.title %></h2>
+                  <p><%- post.content.substring(0,150) %></p>
+                  <a href="/search/posts/<%= post._id %>" role="button" class="read-more">Read More</a>
+          </div> 
+      <% }) %>
     <% }else{ %>
-        <h2 style="padding: auto; text-align: center;">No results for "<%= search %>"...</h2>
+        <h2 style="padding: auto; text-align: center;">No results found for "<%= search %>"...</h2>
     <% } %>
- </div>
+  </div>
 
 <%- include('partials/footer.ejs') %>

@@ -1,18 +1,12 @@
 <%- include("partials/header.ejs"); %>
 
-<div class="container mt-5" style="margin-bottom: 2em;">
-    <div class="full-post">
-        <div class="Title">
-            <h2 style="font-family: Lobster;"><%= title %></h2>
-            <a href="/profile/<%= author._id %>"  ><span style="color: grey;"><%= author.fullname %></span></a><br>
-            <span style="color: grey;"><%= createdAt %></span>
-            <hr class="all-posts">
-        </div>
-        <div class="Description">
-            <p><%- content %></p>
-        </div>  
-    </div>
-    
-</div>
+<article class="full-blog-post">
+    <h2><%= title %></h2>
+    <a href="/profile/<%= author._id %>"  role="button"><span style="color: grey;"><%= author.fullname %></span></a><br>
+    <span style="color: grey;"><%= createdAt %></span>
+    <hr class="post-separate">
+    <p><%- content %></p>
+
+</article>
 
 <%- include("partials/footer.ejs"); %>

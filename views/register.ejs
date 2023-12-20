@@ -1,37 +1,20 @@
 <%- include('partials/header') %>
 
-<div class="container mt-5 post auth">
-  <h2>Register</h2>
+<div class="registration-form">
+  <h2>Registration</h2>
+  <form action="/auth/register" method="POST">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="fullname" required placeholder="Username">
 
-  <div class="row">
-    <div class="col-sm-8">
-      <div class="card">
-        <div class="card-body">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="username" required placeholder="Email">
 
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required placeholder="Password">
 
-          <form action="/auth/register" method="POST">
-            <div class="form-group">
-              <label for="text">Full Name</label>
-              <input type="text" class="form-control" name="fullname" spellcheck="true" required autofocus placeholder="Full Name">
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" class="form-control" name="username" required autofocus placeholder="Email">
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" class="form-control" name="password" required autofocus placeholder="Password">
-            </div>
-            <button type="submit" class="btn btn-dark">Register</button>
-          </form><br>
-          <p>Have an account? <a href="/auth/login">Login</a></p>
-        </div>
-      </div>
-    </div>
-
-    
-
-  </div>
+    <input type="submit" value="Register">
+  </form>
+  <p>Have an account? <a href="/auth/login" role="button">Login</a></p>
 </div>
 
 <%- include('partials/footer') %>

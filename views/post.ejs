@@ -1,26 +1,21 @@
 <%- include("partials/header.ejs"); %>
 
-<div class="container mt-5" style="margin-bottom: 2em;">
-    <div class="full-post">
-        <div class="Title">
-            <h2><%= title %></h2>
-            <span style="color: grey;"><%= createdAt %></span>
-            <hr class="all-posts">
-        </div>
-        <div class="Description">
-            <p><%- content %></p>
-        </div>
-        <div>
-            <hr class="end-post">
-            <form action="/blog/delete/<%= id %>?_method=DELETE" method="post" class="modify">
-                <input type="submit" value="Delete" class="btn btn-danger">
-            </form>
-        
-            <form action="/blog/compose/update/<%= id %>" method="get" class="modify">
-                <input type="submit" value="Update" class="btn btn-primary">
-            </form>
-        </div>
+<article class="full-blog-post">
+    <h2><%= title %></h2>
+    <span style="color: grey;"><%= createdAt %></span>
+    <hr class="post-separate">
+    <p><%- content %></p>
+
+    <div class="buttons">
+      <form action="/blog/delete/<%= id %>?_method=DELETE" method="post" >
+        <input type="submit" value="Delete" class="delete-button">
+      </form>
+
+      <form action="/blog/compose/update/<%= id %>" method="get" >
+        <input type="submit" value="Update" class="update-button">
+      </form>
     </div>
+  </article>
     
     
 </div>

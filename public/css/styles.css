@@ -1,113 +1,311 @@
-body{
-    box-sizing: border-box;
-}
-/* .container-fluid {
-    padding-top: 70px;
-    padding-bottom: 70px;
-} */
-
-.navbar {
-    padding-top: 2rem;
-    padding-bottom: 1rem;
-    border: 0;
-    border-radius: 0;
-    margin-bottom: 0;
-    font-size: 1rem;
-    letter-spacing: 5px;
-}
-.navbar-nav  li a:hover {
-    color: #1abc9c !important;
-}
-.form-inline{
-    padding-top: 1rem;
-}
-
-.footer-padding {
-    margin-top: 2rem;
-}
-
-.footer {
-	position: fixed;
-	text-align: center;
-	bottom: 0;
-	width: 100%;
-	height: 5%;
-	background-color: #1abc9c;
-}
-
-.footer p {
-    padding-top: 1em;
-	font-size: 1.3rem;
-    color: #fff;
-}
-
-
-
-.modify{
-    display: inline;
-    padding-right: 2em;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif; /* You can replace 'Arial' with your premium font-family */
+    background-color: #fff; /* Premium background color */
+    color: #000; /* Premium black font color */
+  }
+  
+  header {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for the header */
+    padding: 10px 20px;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-around;
     align-items: center;
+  }
+  
+  .brand-name {
+    font-size: 24px;
+    font-weight: bold;
+  }
 
-}
-
-.Description{
-    font-family: Cambria, Verdana, Geneva, Tahoma, sans-serif;
-    font-size: medium;
-}
-
-.Title{
-    font-family: Lobster;
-}
-
-.user{
+  .brand-name a{
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-bar input[type="search"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .search-bar button {
+    padding: 8px 15px;
+    margin-left: 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  footer {
     text-align: center;
-    font-family: Monospace;
-    margin-bottom: 2.5rem;
-    
-}
-
-hr{
-    border: thin solid #1c2841;
-    padding-top: 0;
-    margin-top: 0;
-}
-
-.post{
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    padding: 1rem;
-    border-radius: 5px;
-}
-
-.auth{
-    align-items:center; 
-    width: 75%; 
-    margin-top:2rem; 
-    padding-left: 3rem;
-}
-
-.all-posts{
-    width: 10%;
-    margin: 0;
-    background-color: rgb(88, 88, 225);
-    size: 10%;
-}
-
-.end-post{
+    padding: 10px 0;
+    /* Remove the fixed positioning */
+    /* position: fixed; */
+    /* bottom: 0; */
+    width: 100%;
+  }
+  
+  /* register and login page */
+  
+  .registration-form {
     width: 30%;
-    margin: 0;
-    /* background-color: rgb(88, 88, 225); */
-    size: 10%;
-    margin-bottom: 1em;
-}
-
-.full-post{
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    padding: 2rem;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .registration-form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .registration-form form label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .registration-form form input[type="text"],
+  .registration-form form input[type="email"],
+  .registration-form form input[type="password"],
+  .registration-form form input[type="submit"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .registration-form form input[type="submit"] {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* dashboard of logged in user */
+  
+  .user-dashboard {
+    margin-top: 40px;
+    text-align: center; /* Center-align the content */
+  }
+  
+  .user-dashboard h2 {
+    margin-bottom: 20px;
+  }
+  
+  
+  .dashboard-buttons {
+    display: inline-block;
+    margin-bottom: 13px; 
+  }
+  
+  .dashboard-button {
+    padding: 10px 20px;
+    border: none;
     border-radius: 5px;
-    margin-top: 2rem;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .dashboard-button:not(:last-child) {
+    margin-right: 5px; /* Reduced spacing between buttons */
+  }
+  
+  .separator {
+    width: 50%; /* Horizontal line width */
+    border-bottom: 2px solid #000; /* Adjust thickness and color as needed */
+    margin: 10px auto; /* Center the line and add spacing */
+  }
+  
+  
+  .blog-post {
+    width: 75%; /* Set width to 75% */
+    margin: 0 auto; /* Center the container */
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Adjust text alignment within the container */
+    margin-top: 20px; /* Add space at the top of each blog post */
+  }
+  
+  .blog-post:first-child {
+    margin-top: 0; /* Remove top margin for the first blog post */
+  }
+  
+  .blog-post h3 {
+    margin-bottom: 10px;
+  }
+  
+  .blog-post p {
+    color: #666;
+  }
+  
+  
+  .read-more {
+    display: block;
+    text-align: right; /* Align the "Read More" link to the right */
+    margin-top: 10px; /* Add space between the blog post content and the link */
+    color: #333; /* Change link color if needed */
+    text-decoration: none; /* Remove default underline */
+  }
+  
+  .read-more:hover {
+    text-decoration: underline; /* Add underline on hover */
+  }
+  
+  /* full blog post */
+  
+  .full-blog-post {
+    max-width: 600px; /* Set a maximum width */
+    margin: 50px auto; /* Center the container horizontally */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .full-blog-post p {
+    line-height: 1.6;
+  }
+  
+  .buttons form{
+    margin-top: 10px;
+    display: inline-block;
+  }
+  
+  .update-button,
+  .delete-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .update-button {
+    background-color: #3498db;
+    color: #fff;
+  }
+  
+  .delete-button {
+    background-color: #e74c3c;
+    color: #fff;
+  }
+  
+  .post-separate{
+    width: 50%; /* Horizontal line width */
+    border-bottom: 2px solid #000; /* Adjust thickness and color as needed */
+    margin: 8px 0; /* Center the line and add spacing */
+    
+  }
+  
+  /* create blog post */
+  
+  
+  .blog-post-form {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .blog-post-form h2 {
+    margin-bottom: 20px;
+  }
+  
+  .blog-post-form label,
+  .blog-post-form input[type="text"],
+  .blog-post-form #editor {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .blog-post-form input[type="text"],
+  .blog-post-form #editor {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .blog-post-form input[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: #fff;
+  }
+
+  /* CSS for icons */
+
+.social-icons {
+  font-size: 24px;
+  margin-top: 20px;
+  text-align: center;
 }
 
-i{
-    font-size: 20px;
+.social-icon {
+    font-size: 32px; /* Increase icon size */
+    margin-right: 15px;
 }
 
+a{
+  text-decoration: none;
+  color: #3498db;
+}
+
+.social-icon.github {
+  color: #333; /* GitHub icon color */
+}
+
+.social-icon.linkedin {
+  color: #0077b5; /* LinkedIn icon color */
+}
+
+.social-icon.medium {
+  color: #00ab6c; /* Medium icon color */
+}
+
+.social-icon.instagram {
+  color: #bc2a8d; /* Instagram icon color */
+}
+
+.social-icon.gmail {
+  color: #db4437; /* Gmail icon color */
+}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

@@ -1,42 +1,18 @@
 <%- include('partials/header') %>
 
-<div class="container mt-5 post auth">
+<div class="registration-form">
   <h2>Login</h2>
+  <form action="/auth/login" method="POST">
 
-  <div class="row">
-    <div class="col-sm-8">
-      <div class="card">
-        <div class="card-body">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="username" required placeholder="Email">
 
-          <!-- Makes POST request to /login route -->
-          <form action="/auth/login" method="POST">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" class="form-control" name="username" required autofocus placeholder="Email">
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" class="form-control" name="password" required autofocus placeholder="Password">
-            </div>
-            <button type="submit" class="btn btn-dark">Login</button>
-          </form><br>
-          <p>Don't have an account? <a href="/auth/register">Register</a></p>
-        </div>
-      </div>
-    </div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required placeholder="Password">
 
-    <!-- <div class="col-sm-4">
-      <div class="card">
-        <div class="card-body">
-          <a class="btn btn-block" href="/auth/google" role="button">
-            <i class="fab fa-google"></i>
-            Sign In with Google
-          </a>
-        </div>
-      </div>
-    </div> -->
-
-  </div>
+    <input type="submit" value="Login">
+  </form>
+  <p>Don't have an account? <a href="/auth/register" role="button">Register</a></p>
 </div>
 
 <%- include('partials/footer') %>

@@ -1,38 +1,27 @@
 
 <%- include('partials/header.ejs') %>
 
-<div class="container mt-5">
-    <div class="user">
-        <h2 >Hi <%= user %>!</h2>
-        <a class="btn btn-primary " href="/blog/compose" role="button" >New Blog!</a>
-        <a class="btn btn-primary " href="/logout" role="button" >Logout</a>
+<div class="user-dashboard">
+    <h2>Welcome <%= user %>!</h2>
+
+    <div class="dashboard-buttons">
+      <a href="/blog/compose" class="dashboard-button">New Blog!</a>
+      <a href="/logout" class="dashboard-button">Logout</a>
     </div>
-    
-    <div class="container mt-5">
+    <hr class="separator">
+
+    <% if(posts.length>0){%>
         
-        <hr>
-        <% if(posts.length>0){%>
-        
-            <% posts.forEach((post)=>{ %>
-                <div class="post">
-                    <div class="Title">
-                        <h2><%= post.title %></h2>
-                    </div>
-                    <hr class="all-posts">
-                    <div class="Description">
-                        <p><%- post.content.substring(0,120)+" ..." %>
-                            <a href="/blog/posts/<%= post._id %>">Read More</a>
-                        </p>
-                    </div>
-                </div>
-                <br>
-                
-            <% }) %>
-        <% }else{ %>
-            <h5 style="text-align: center;">Create new blog📝!</h5>
-        <% } %>
-     </div>
-    
+      <% posts.forEach((post)=>{ %>
+          <div class="blog-post">
+                <h2><%= post.title %></h2>
+                  <p><%- post.content.substring(0,150) %></p>
+                  <a href="/blog/posts/<%= post._id %>" class="read-more">Read More</a>
+          </div> 
+      <% }) %>
+    <% }else{ %>
+          <h5 style="text-align: center;">Create new blog📝!</h5>
+    <% } %>
 </div>
 
 <%- include('partials/footer.ejs') %>

@@ -1,36 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
-  <meta charset="utf-8">
-  <title>Daily Journal</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="/css/styles.css">
-  <nav class="navbar navbar-default">
-    <div class="container">
-      <div class="navbar-header">
-        <p class="navbar-brand">DAILY JOURNAL</p>
+  <title>Daily Journal</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="navbar">
+        <div class="brand-name"><a href="/" role="button">Daily Journal</a></div>
+        <div class="search-bar">
+          <form action="/search" method="get">
+            <input type="search" name="search"  spellcheck="true" placeholder="Search">
+            <button type="submit">Search</button>
+          </form> 
+        </div>
       </div>
-      <div>
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <form class="form-inline" action="/search" method="get">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search"  spellcheck="true" autofocus>
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
-            </form>
-          </li>
-          <li id="home"><a href="/">HOME</a></li>
-          <li id="about"><a href="/about">CREATED BY</a></li>
-        </ul>
-      </div>
-        
-    </div>
-  </nav>
-
-  <body>
-  <div class="container">
-    
-    
+    </nav>
+  </header>
+  
+  <main>
