@@ -16,9 +16,28 @@
 
   <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
   <script>
-      // Initialize Quill.js
-      var quill = new Quill('#editor', {
-        theme: 'snow'
+      const toolbarOptions = [
+      ['bold', 'italic', 'underline', 'strike'],        // Basic formatting
+      ['blockquote', 'code-block'],
+
+      [{ 'header': 1 }, { 'header': 2 }],               // Headers
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }],    // Lists
+      [{ 'script': 'sub'}, { 'script': 'super' }],     // Subscript/superscript
+      [{ 'indent': '-1'}, { 'indent': '+1' }],         // Indentation
+      [{ 'direction': 'rtl' }],                        // Text direction
+
+      [{ 'color': [] }, { 'background': [] }],         // Color controls
+      [{ 'font': [] }],
+      [{ 'align': [] }],
+
+      ['clean']                                        // Remove formatting
+      ];
+
+      const quill = new Quill('#editor', {
+      modules: {
+        toolbar: toolbarOptions
+      },
+      theme: 'snow'
       });
 
       // Get form and attach submit event listener

@@ -9,21 +9,41 @@
       <label for="post-content">Content:</label>
       <div id="editor"  id="post-content"></div>
       
-      <input type="submit" value="Publish">
+      <input type="submit" value="Update">
       <a href="/blog/posts/<%= post._id %>" role="button" style="margin: 5px; text-decoration: none;">Cancel</a>
     </form>
   </div>
 
   <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
   <script>
-    // Initialize Quill.js
-    var quill = new Quill('#editor', {
+      const toolbarOptions = [
+        ['bold', 'italic', 'underline', 'strike'],        // Basic formatting
+        ['blockquote', 'code-block'],
+
+        [{ 'header': 1 }, { 'header': 2 }],               // Headers
+        [{ 'list': 'ordered'}, { 'list': 'bullet' }],    // Lists
+        [{ 'script': 'sub'}, { 'script': 'super' }],     // Subscript/superscript
+        [{ 'indent': '-1'}, { 'indent': '+1' }],         // Indentation
+        [{ 'direction': 'rtl' }],                        // Text direction
+
+        [{ 'color': [] }, { 'background': [] }],         // Color controls
+        [{ 'font': [] }],
+        [{ 'align': [] }],
+
+        ['clean']                                        // Remove formatting
+      ];
+
+      const quill = new Quill('#editor', {
+      modules: {
+        toolbar: toolbarOptions
+      },
       theme: 'snow'
-    });
+      });
 
     // Set the fetched content in the Quill.js editor
     
-    quill.root.innerHTML = '<%- post.content.replace(/\n/g, '<br>') %> ';   //replace("\n", "<br>")
+    
+    quill.root.innerHTML = `<%- post.content.replace(/\n/g, '<br>') %> `;   //replace("\n", "<br>")
 
     // Listen for form submission
     document.getElementById('myForm').addEventListener('submit', function(event) {
