@@ -2,7 +2,7 @@
 
 <article class="full-blog-post">
     <h2><%= title %></h2>
-    <a href="/profile/<%= author._id %>"  role="button"><span style="color: grey;"><%= author.fullname %></span></a><br>
+    <a href="/profile/<%= author._id %>"  role="button" id="profile"><span style="color: grey;"><%= author.fullname %></span></a><br>
     <span style="color: grey;"><%= createdAt %></span>
     <hr class="post-separate">
     <p><%- content %></p>

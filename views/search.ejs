@@ -3,7 +3,7 @@
 <div class="user-dashboard">
 
     <% if(posts.length>0){%>
-        <h4 style="padding-top: 1rem; font-size: medium;"><%= posts.length %> results for <%= search %>...</h4>
+        <h4 style="padding-top: 1rem; font-size: medium;"><%= posts.length %> results for '<%= search %>'...</h4>
         <hr style="border-bottom: 2px solid #000; margin:5px">
       <% posts.forEach((post)=>{ %>
           <div class="blog-post">
