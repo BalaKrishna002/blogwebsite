@@ -96,8 +96,29 @@ body {
   .registration-form form input[type="submit"] {
     background-color: #000;
     color: #fff;
+    margin-bottom: 0;
     border: none;
     cursor: pointer;
+  }
+  
+  .google-signup-btn {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #ea4335;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  /* .google-signup-btn a{
+    text-decoration: none;
+    color: #000;
+  } */
+  
+  .google-signup-btn:hover {
+    background-color: #d22f25;
   }
   
   /* dashboard of logged in user */

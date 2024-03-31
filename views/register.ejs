@@ -4,17 +4,25 @@
   <h2>Registration</h2>
   <form action="/auth/register" method="POST">
     <label for="username">Username:</label>
-    <input type="text" id="username" name="fullname" required placeholder="Username">
+    <input type="text" id="username" name="username" required placeholder="Username">
 
     <label for="email">Email:</label>
-    <input type="email" id="email" name="username" required placeholder="Email">
+    <input type="email" id="email" name="email" required placeholder="Email">
 
     <label for="password">Password:</label>
     <input type="password" id="password" name="password" required placeholder="Password">
 
+    <% if (message.error) { %>
+      <div class="alert alert-error" role="alert" style="color: red;">
+        <%= message.error %>
+      </div>
+    <% } %>
+
     <input type="submit" value="Register">
+    <p>Have an account? <a href="/auth/login" role="button">Login</a></p>
   </form>
-  <p>Have an account? <a href="/auth/login" role="button">Login</a></p>
+  <hr style="border: 0; height: 1px; background-color: black; margin: 20px 0;">
+  <button class="google-signup-btn"><a href="/auth/google" role="button" style="text-decoration:none; color:black">Register with Google</a></button>
 </div>
 
 <%- include('partials/footer') %>

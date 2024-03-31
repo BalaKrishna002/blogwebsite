@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get("/",ensureAuth, async (req,res)=>{
     const posts = await Post.find({author: req.user._id});
-    res.render("home",{user: req.user.fullname,posts: posts}); 
+    res.render("home",{user: req.user.username,posts: posts}); 
 });
 
 router.get("/about",(req,res)=>{
